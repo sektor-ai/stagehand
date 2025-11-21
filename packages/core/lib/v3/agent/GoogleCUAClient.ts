@@ -634,7 +634,8 @@ export class GoogleCUAClient extends AgentClient {
               // Select all text in the field
               actions.push({
                 type: "keypress",
-                keys: ["ControlOrMeta+A"],
+                // Use platform-specific modifier (Meta on Mac, Control on Windows/Linux)
+                keys: [process.platform === 'darwin' ? "Meta+A" : "Control+A"],
               });
               actions.push({
                 type: "keypress",
